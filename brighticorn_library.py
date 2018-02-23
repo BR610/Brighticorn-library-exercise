@@ -20,9 +20,12 @@ def menu():
         if command == "add":
             print "Add Book!"
             new_book = raw_input("Which book would you like to add? ")
-            books.append(new_book)
-            print "Added: {}".format(new_book)
-            print books
+            if new_book in books:
+                print "{} is already in the library" .format(new_book)
+            else:
+                books.append(new_book)
+                print "Added: {}".format(new_book)
+                print books
 
         elif command == "view":
             print "View Book!"
@@ -36,14 +39,18 @@ def menu():
 
         elif command == "check":
             print "Check for a Book!"
+            found = False
             to_check = raw_input("Which book would you like to check the library for? ")
 
-            if to_check in books:
-                print "Found {} in the library! ".format(to_check)
-            else:
+            for book in books:
+                if to_check in books:
+                    print "Found {} in the library! ".format(to_check)
+                    found = True
+            
+            if found == False:
                 print "{} not found. ".format(to_check)
 
         else:
             print "Sorry, that is not a option of this program"
-
+        print "You have {} books in the library." .format(len(books))
 menu()
