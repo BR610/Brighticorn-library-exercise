@@ -3,15 +3,11 @@ books = ["Dune", "Pride and Prejudice"]
 
 
 def menu():
-
     # Print welcome title
     print "Brighticorn's Books"
     print "-------------------"
     print "You can add/view/check/exit"
-    #command = raw_input("Please enter your choice: ")
-    #print "Action: " + command
 
-    #command = command.lower()
     while True:
         command = raw_input("Please enter your choice: ")
         command = command.lower()
@@ -30,6 +26,7 @@ def menu():
 
         elif command == "view":
             print "View Book!"
+            books.sort()
             for book in books:
                 print book
             '''i = 0
